@@ -79,6 +79,8 @@
 \newcommand{\orcidsymbol}{\aiOrcid}
 \newcommand{\mailsymbol}{\faEnvelope}
 \newcommand{\birthdaysymbol}{\faBirthdayCake}
+\newcommand{\mansymbol}{\faMars}
+\newcommand{\womansymbol}{\faVenus}
 
 \newcommand{\printinfo}[2]{\mbox{\textcolor{accent}{\normalfont #1}\hspace{0.5em}#2\hspace{2em}}}
 
@@ -95,6 +97,8 @@
 \newcommand{\orcid}[1]{\printinfo{\orcidsymbol}{#1}}
 \newcommand{\location}[1]{\printinfo{\locationsymbol}{#1}}
 \newcommand{\birthday}[1]{\printinfo{\birthdaysymbol}{#1}}
+\newcommand{\man}[1]{\printinfo{\mansymbol}{#1}}
+\newcommand{\woman}[1]{\printinfo{\womansymbol}{#1}}
 
 \newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
 
@@ -133,24 +137,20 @@
   {\color{emphasis}\large\bfseries{#1}\par}\medskip
 }
 
-\newcommand{\cvexp}[4]{%
+\newcommand{\cvexp}[3]{%
   \large{\color{emphasis}#1}
   \ifstrequal{#3}{}{}{{\hfill\small{\faCalendar\hspace{0.5em}#3\par}}}
   \smallskip\normalsize
   \ifstrequal{#2}{}{}{
-  \textbf{\color{accent}#2}\par
-  \smallskip}
-  \medskip
+  \textbf{\color{accent}#2}\par}
 }
 
-\newcommand{\cvedu}[4]{%
+\newcommand{\cvedu}[3]{%
   \large{\color{emphasis}#1\par}
   \smallskip\normalsize
   \ifstrequal{#2}{}{}{
-  \textbf{\color{accent}#2}\par
-  \smallskip}
+  \textbf{\color{accent}#2}\par}
   \ifstrequal{#3}{}{}{{\small{\faCalendar\hspace{0.5em}#3\par}}}%
-  \medskip
 }
 
 \newcommand{\cvtag}[1]{%
