@@ -102,25 +102,23 @@
 
 \newcommand{\personalinfo}[1]{\def\@personalinfo{#1}}
 
+\usetikzlibrary{calc}
+
 \newcommand{\makecvheader}{%
-  \begingroup
-    \ifdef{\@photodiameter}{\begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}}{}%
-    \raggedright\color{emphasis}%
-    {\Huge\bfseries\color{name}\MakeUppercase{\@name}\par}
-    \medskip
-    {\large\bfseries\color{accent}\@tagline\par}
-    \medskip
-    {\footnotesize\bfseries\@personalinfo\par}
-    \ifdef{\@photodiameter}{%
-    \end{minipage}\hfill%
-    \begin{minipage}{\@photodiameter}
-    \if@normalphoto
-      \includegraphics[width=\linewidth]{\@photo}
-    \else
-      \tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
-    \fi%
-    \end{minipage}\par}{}%
-  \endgroup\medskip
+  \begin{minipage}{.80\linewidth}
+    \huge\bfseries\color{name}\MakeUppercase{\@name}\par\medskip
+    \large\bfseries\color{accent}\@tagline\par\medskip
+  \end{minipage}\hfill
+  \begin{minipage}{.10\linewidth}
+    \begin{tikzpicture}
+      \node[circle
+           ,draw
+           ,inner sep=0.7cm
+           ,fill overzoom image=my-self.jpg] (A) {};
+    \end{tikzpicture}
+  \end{minipage}
+
+  \footnotesize\bfseries\color{body}\@personalinfo\par
 }
 
 \renewenvironment{quote}{\color{accent}\itshape\large}{\par}
